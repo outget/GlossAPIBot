@@ -27,7 +27,7 @@ async def is_channel(ctx):
 @commands.check(is_channel)
 async def announce(ctx, *, arg):
     channel = bot.get_channel(1371779191623647314)
-    await channel.send(arg)
+    await channel.send(arg) # type: ignore
     await ctx.message.delete()
 
 @bot.command()
@@ -46,4 +46,4 @@ async def announce_error(ctx, error):
 load_dotenv()
 token = os.getenv('TOKEN')
 
-bot.run(token)
+bot.run(token) # type: ignore
